@@ -38,6 +38,10 @@ export class AppComponent {
     //   .then((data) => (this.customers2 = data));
     this.getDataFromApi();
 
+    this.loop();
+  }
+
+  loop() {
     setTimeout(() => {
       this.getDataFromApi();
     }, 3000);
@@ -45,6 +49,7 @@ export class AppComponent {
 
   getDataFromApi() {
     console.log('get data from api');
+    this.loop();
     this.dataMarts = [];
     for (let i = 0; i < 150; i++) {
       this.dataMarts.push({
