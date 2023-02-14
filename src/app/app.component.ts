@@ -15,17 +15,28 @@ export class AppComponent {
 
   selectedCustomer2: Customer;
 
-  dataMarts: any;
+  cols: any[];
+  dataMarts: any[];
+  first = 0;
 
   constructor(private customerService: CustomerService) {}
 
   ngOnInit() {
-    this.customerService
-      .getCustomersMedium()
-      .then((data) => (this.customers1 = data));
-    this.customerService
-      .getCustomersMedium()
-      .then((data) => (this.customers2 = data));
+    this.cols = [
+      { field: 'Id', header: 'Id' },
+      { field: 'vin', header: 'Vin' },
+      { field: 'year', header: 'Year' },
+      { field: 'brand', header: 'Brand' },
+      { field: 'color', header: 'Color' },
+    ];
+
+    // this.customerService
+    //   .getCustomersMedium()
+    //   .then((data) => (this.customers1 = data));
+    // this.customerService
+    //   .getCustomersMedium()
+    //   .then((data) => (this.customers2 = data));
+    this.getDataFromApi();
 
     setTimeout(() => {
       this.getDataFromApi();
