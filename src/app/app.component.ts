@@ -21,6 +21,7 @@ export class AppComponent {
 
   constructor(private customerService: CustomerService) {}
 
+  
   ngOnInit() {
     this.cols = [
       { field: 'Id', header: 'Id' },
